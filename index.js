@@ -37,4 +37,5 @@ bot.on("message", (message) => {
     }
 });
 
-bot.login(process.env.TOKEN)
+console.log(process.env.TOKEN);
+bot.login(process.env.TOKEN);
