@@ -1,5 +1,9 @@
 import Discord from 'discord.js';
 import fetch from 'node-fetch';
+import dotenv from "dotenv";
+
+dotenv.config()
+
 
 const bot = new Discord.Client();
 bot.on("ready", () => {
@@ -33,4 +37,4 @@ bot.on("message", (message) => {
     }
 });
 
-bot.login("ODk5OTEwODQ0MzQxNjk4NTgw.YW5pSA.aUmj3AYbFFQ1rC4-5eFORHjmZIw")
+bot.login(process.env.TOKEN)
