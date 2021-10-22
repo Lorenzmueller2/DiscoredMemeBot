@@ -1,5 +1,9 @@
 import Discord from 'discord.js';
 import fetch from 'node-fetch';
+import dotenv from "dotenv";
+
+dotenv.config()
+
 
 const bot = new Discord.Client();
 bot.on("ready", () => {
@@ -108,5 +112,7 @@ bot.on("message", (message) => {
         .catch(e => message.channel.send("Fehler"))
     }
 });
-console.log(process.env.TOKEN)
-//bot.login(process.env.TOKEN)
+
+console.log(process.env.TOKEN);
+bot.login(process.env.TOKEN);
+
