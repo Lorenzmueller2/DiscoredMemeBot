@@ -26,6 +26,9 @@ bot.on("message", (message) => {
     if(cmd == "hello") {
         message.channel.send("hello");
     }
+    if(cmd == "mikka") {
+        message.channel.send("Mikka mach mal öppis!")
+    }
     if(cmd == "help") {
         message.channel.send("!hello \n!memes \n!help<spezifischer helfen>");
     };
