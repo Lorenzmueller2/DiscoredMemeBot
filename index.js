@@ -17,20 +17,96 @@ bot.on("message", (message) => {
     if(!message.content.startsWith(prefix)) return;
 
     if(cmd == "helpmemes"){
-        message.channel.send("Es gibt folgende memes: \nnormale memes \ndank memes \nksi memes \npewdiepie memes");
+        message.channel.send("Es gibt folgende memes: \nnormale memes:   !meme\ndank memes:   !dankmeme\nksi memes:   ksimeme\npewdiepie memes:   !pewdiepewmeme\nWatch people die inside memes:   !watchpeopledieinside\ncuredcomments:   !cursedcomment\n");
     }
     if(cmd == "hello") {
         message.channel.send("hello");
     }
     if(cmd == "help") {
-        message.channel.send("!hello \n!memes");
+        message.channel.send("!hello \n!memes \n!help<spezifischer helfen>");
     };
 
     if(cmd == "meme") {
         fetch('https://www.reddit.com/r/memes/random/.json')
         .then(res => res.json())
-        .then(json => message.channel.send(JSON.stringify(json)))
+        .then(res => {
+            message.channel.send(res[0]["data"]["children"][0]["data"]["title"])
+            message.channel.send(res[0]["data"]["children"][0]["data"]["url"])
+        })
+        .catch(e => message.channel.send("Fehler"))
+    };
+    if(cmd == "dankmeme") {
+        fetch('https://www.reddit.com/r/dankmemes/random/.json')
+        .then(res => res.json())
+        .then(res => {
+            message.channel.send(res[0]["data"]["children"][0]["data"]["title"])
+            message.channel.send(res[0]["data"]["children"][0]["data"]["url"])
+        })
+        .catch(e => message.channel.send("Fehler"))
+    }
+    if(cmd == "ksimeme") {
+        fetch('https://www.reddit.com/r/ksi/random/.json')
+        .then(res => res.json())
+        .then(res => {
+            message.channel.send(res[0]["data"]["children"][0]["data"]["title"])
+            message.channel.send(res[0]["data"]["children"][0]["data"]["url"])
+        })
+        .catch(e => message.channel.send("Fehler"))
+    }
+    if(cmd == "pewdiepiememe") {
+        fetch('https://www.reddit.com/r/pewdiepiesubmissions/random/.json')
+        .then(res => res.json())
+        .then(res => {
+            message.channel.send(res[0]["data"]["children"][0]["data"]["title"])
+            message.channel.send(res[0]["data"]["children"][0]["data"]["url"])
+        })
+        .catch(e => message.channel.send("Fehler"))
+    }
+    if(cmd == "watchpeopledieinside") {
+        fetch('https://www.reddit.com/r/watchpeopledieinside/random/.json')
+        .then(res => res.json())
+        .then(res => {
+            message.channel.send(res[0]["data"]["children"][0]["data"]["title"])
+            message.channel.send(res[0]["data"]["children"][0]["data"]["url"])
+        })
+        .catch(e => message.channel.send("Fehler"))
+    }
+    if(cmd == "cursedcomment") {
+        fetch('https://www.reddit.com/r/cursedcomments/random/.json')
+        .then(res => res.json())
+        .then(res => {
+            message.channel.send(res[0]["data"]["children"][0]["data"]["title"])
+            message.channel.send(res[0]["data"]["children"][0]["data"]["url"])
+        })
+        .catch(e => message.channel.send("Fehler"))
+    }
+    if(cmd == "cursedcomment") {
+        fetch('https://www.reddit.com/r/cursedcomments/random/.json')
+        .then(res => res.json())
+        .then(res => {
+            message.channel.send(res[0]["data"]["children"][0]["data"]["title"])
+            message.channel.send(res[0]["data"]["children"][0]["data"]["url"])
+        })
+        .catch(e => message.channel.send("Fehler"))
+    }
+    if(cmd == "oddlysatisfaying") {
+        fetch('https://www.reddit.com/r/oddlysatisfaying/random/.json')
+        .then(res => res.json())
+        .then(res => {
+            message.channel.send(res[0]["data"]["children"][0]["data"]["title"])
+            message.channel.send(res[0]["data"]["children"][0]["data"]["url"])
+        })
+        .catch(e => message.channel.send("Fehler"))
+    }
+    if(cmd == "historymeme") {
+        fetch('https://www.reddit.com/r/HistoryMemes/.json?utm_campaign=redirect&utm_medium=desktop&utm_source=reddit&utm_name=random_link')
+        .then(res => res.json())
+        .then(res => {
+            message.channel.send(res[0]["data"]["children"][0]["data"]["title"])
+            message.channel.send(res[0]["data"]["children"][0]["data"]["url"])
+        })
+        .catch(e => message.channel.send("Fehler"))
     }
 });
-
-bot.login("ODk5OTEwODQ0MzQxNjk4NTgw.YW5pSA.aUmj3AYbFFQ1rC4-5eFORHjmZIw")
+console.log(process.env.TOKEN)
+//bot.login(process.env.TOKEN)
