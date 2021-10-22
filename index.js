@@ -21,7 +21,7 @@ bot.on("message", (message) => {
     if(!message.content.startsWith(prefix)) return;
 
     if(cmd == "helpmemes"){
-        message.channel.send("Es gibt folgende memes: \nnormale memes:   !meme\ndank memes:   !dankmeme\nksi memes:   ksimeme\npewdiepie memes:   !pewdiepewmeme\nWatch people die inside memes:   !watchpeopledieinside\ncuredcomments:   !cursedcomment\n");
+        message.channel.send("Es gibt folgende memes: \nnormale memes:   !meme\ndank memes:   !dankmeme\nksi memes:   ksimeme\npewdiepie memes:   !pewdiepewmeme\nWatch people die inside memes:   !watchpeopledieinside\ncuredcomments:   !cursedcomment\nOddly Satisfaying:   !oddlysatisfaying\n");
     }
     if(cmd == "hello") {
         message.channel.send("hello");
@@ -98,15 +98,6 @@ bot.on("message", (message) => {
     }
     if(cmd == "oddlysatisfaying") {
         fetch('https://www.reddit.com/r/oddlysatisfaying/random/.json')
-        .then(res => res.json())
-        .then(res => {
-            message.channel.send(res[0]["data"]["children"][0]["data"]["title"])
-            message.channel.send(res[0]["data"]["children"][0]["data"]["url"])
-        })
-        .catch(e => message.channel.send("Fehler"))
-    }
-    if(cmd == "historymeme") {
-        fetch('https://www.reddit.com/r/HistoryMemes/.json?utm_campaign=redirect&utm_medium=desktop&utm_source=reddit&utm_name=random_link')
         .then(res => res.json())
         .then(res => {
             message.channel.send(res[0]["data"]["children"][0]["data"]["title"])
